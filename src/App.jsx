@@ -7,11 +7,12 @@ import AddTechnology from './pages/AddTechnology';
 import Stats from './pages/Stats';
 import Settings from './pages/Settings';
 import TechnologySearch from './components/TechnologySearch';
+import BulkStatusEditor from './components/BulkStatusEditor';
 import useTechnologiesApi from './hooks/useTechnologiesApi';
 import './App.css';
 
 function App() {
-    const { technologies, loading, error, refetch } = useTechnologiesApi();
+    const { technologies, loading, error, refetch, updateMultipleStatuses } = useTechnologiesApi();
 
     if (loading) {
         return (
@@ -51,6 +52,12 @@ function App() {
                                     technologies={technologies}
                                     onTechnologySelect={(tech) => console.log('Selected:', tech)}
                                 />
+                                
+                                <BulkStatusEditor 
+                                    technologies={technologies}
+                                    onStatusUpdate={updateMultipleStatuses}
+                                />
+                                
                                 <TechnologyList technologies={technologies} />
                             </div>
                         } />

@@ -1,7 +1,9 @@
 import './TechnologyCard.css';
 
-function TechnologyCard({ id, title, description, status, notes, onStatusChange, onNotesChange }) {
-    const handleClick = () => {
+function TechnologyCard({ technology, onStatusChange, onNotesChange }) {
+    const { id, title, description, status, notes } = technology;
+
+    const handleStatusClick = () => {
         const statusOrder = ['not-started', 'in-progress', 'completed'];
         const currentIndex = statusOrder.indexOf(status);
         const nextIndex = (currentIndex + 1) % statusOrder.length;
@@ -16,7 +18,7 @@ function TechnologyCard({ id, title, description, status, notes, onStatusChange,
 
     return (
         <div className={`technology-card status-${status}`}>
-            <div className="card-main" onClick={handleClick}>
+            <div className="card-main" onClick={handleStatusClick}>
                 <div className="card-header">
                     <h3 className="card-title">{title}</h3>
                     <span className={`status-badge status-${status}`}>

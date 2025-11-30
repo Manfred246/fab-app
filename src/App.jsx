@@ -1,44 +1,30 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Home from './pages/Home';
+import TechnologyList from './pages/TechnologyList';
+import TechnologyDetail from './pages/TechnologyDetail';
+import AddTechnology from './pages/AddTechnology';
+import Stats from './pages/Stats';
+import Settings from './pages/Settings';
 import './App.css';
-import useTechnologies from './hooks/useTechnologies';
-import ProgressBar from './components/ProgressBar';
-import TechnologyCard from './components/TechnologyCard';
-import QuickActions from './components/QuickActions';
 
 function App() {
-    const { technologies, updateStatus, updateNotes, markAllCompleted, resetAllStatuses, progress } = useTechnologies();
-
     return (
-        <div className="app">
-            <header className="app-header">
-                <h1>Трекер изучения технологий</h1>
-                <ProgressBar
-                    progress={progress}
-                    label="Общий прогресс"
-                    color="#4CAF50"
-                    animated={true}
-                    height={20}
-                />
-            </header>
-
-            <QuickActions 
-                onMarkAllCompleted={markAllCompleted}
-                onResetAll={resetAllStatuses}
-                technologies={technologies}
-            />
-
-            <main className="app-main">
-                <div className="technologies-grid">
-                    {technologies.map(tech => (
-                        <TechnologyCard
-                            key={tech.id}
-                            technology={tech}
-                            onStatusChange={updateStatus}
-                            onNotesChange={updateNotes}
-                        />
-                    ))}
-                </div>
-            </main>
-        </div>
+        <Router>
+            <div className="app">
+                <Navigation />
+                <main className="main-content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/technologies" element={<TechnologyList />} />
+                        <Route path="/technology/:techId" element={<TechnologyDetail />} />
+                        <Route path="/add-technology" element={<AddTechnology />} />
+                        <Route path="/stats" element={<Stats />} />
+                        <Route path="/settings" element={<Settings />} />
+                    </Routes>
+                </main>
+            </div>
+        </Router>
     );
 }
 

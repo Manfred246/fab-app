@@ -1,0 +1,58 @@
+.back-link {
+    color: #667eea;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.page-header h1 {
+    color: #333;
+}
+
+.technology-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.detail-section p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.status-buttons button {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #333;
+}
+
+.status-buttons button.active {
+    background-color: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.status-buttons button:hover {
+    border-color: #667eea;
+    color: #667eea;
+}

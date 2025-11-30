@@ -1,0 +1,81 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.page-header h1 {
+    color: #333;
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.technology-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ccc;
+    color: #333;
+}
+
+.technology-item h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+}
+
+.technology-item p {
+    color: #666;
+    margin: 0;
+}
+
+.technology-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-not-started {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.status-in-progress {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+.status-completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.btn-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.empty-state p {
+    color: #666;
+}

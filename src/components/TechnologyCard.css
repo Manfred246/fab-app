@@ -4,14 +4,16 @@
     padding: 20px;
     margin: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
     border-left: 4px solid #ccc;
 }
 
-.technology-card:hover {
+.card-main {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-main:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card-header {
@@ -72,4 +74,33 @@
 .card-footer {
     text-align: right;
     font-size: 1.2em;
+}
+
+.notes-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.notes-section h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.notes-section textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9em;
+    resize: vertical;
+}
+
+.notes-hint {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
 }

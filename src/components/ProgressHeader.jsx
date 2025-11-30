@@ -3,6 +3,9 @@ import './ProgressHeader.css';
 function ProgressHeader({ technologies }) {
     const total = technologies.length;
     const completed = technologies.filter(tech => tech.status === 'completed').length;
+    const inProgress = technologies.filter(tech => tech.status === 'in-progress').length;
+    const notStarted = technologies.filter(tech => tech.status === 'not-started').length;
+    
     const progressPercentage = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     return (
@@ -17,8 +20,12 @@ function ProgressHeader({ technologies }) {
                     <span className="stat-label">Изучено</span>
                 </div>
                 <div className="stat-item">
-                    <span className="stat-number">{progressPercentage}%</span>
-                    <span className="stat-label">Прогресс</span>
+                    <span className="stat-number">{inProgress}</span>
+                    <span className="stat-label">В процессе</span>
+                </div>
+                <div className="stat-item">
+                    <span className="stat-number">{notStarted}</span>
+                    <span className="stat-label">Не начато</span>
                 </div>
             </div>
             

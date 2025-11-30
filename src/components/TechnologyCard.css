@@ -1,10 +1,11 @@
 .technology-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 10px;
     padding: 20px;
     margin: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-left: 4px solid #ccc;
+    transition: all 0.3s ease;
 }
 
 .card-main {
@@ -25,7 +26,7 @@
 
 .card-title {
     margin: 0;
-    color: #333;
+    color: var(--card-text);
     font-size: 1.2em;
     flex: 1;
 }
@@ -66,7 +67,8 @@
 }
 
 .card-description {
-    color: #666;
+    color: var(--card-text);
+    opacity: 0.8;
     margin: 0 0 15px 0;
     line-height: 1.5;
 }
@@ -84,7 +86,7 @@
 
 .notes-section h4 {
     margin: 0 0 10px 0;
-    color: #333;
+    color: var(--card-text);
     font-size: 1em;
 }
 
@@ -96,11 +98,14 @@
     font-family: inherit;
     font-size: 0.9em;
     resize: vertical;
+    background: var(--card-bg);
+    color: var(--card-text);
 }
 
 .notes-hint {
     font-size: 0.8em;
-    color: #666;
+    color: var(--card-text);
+    opacity: 0.7;
     margin-top: 5px;
     font-style: italic;
 }

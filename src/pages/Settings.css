@@ -21,7 +21,8 @@
 
 .setting-description {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
     margin-top: 0.5rem;
     line-height: 1.4;
 }
@@ -29,6 +30,7 @@
 .setting-description.warning {
     color: #dc3545;
     font-weight: 500;
+    opacity: 1;
 }
 
 .drop-zone {
@@ -36,21 +38,23 @@
     border-radius: 8px;
     padding: 2rem;
     text-align: center;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
     transition: all 0.3s ease;
     cursor: pointer;
-    background-color: #fafafa;
+    background-color: var(--card-bg);
 }
 
 .drop-zone:hover {
     border-color: #667eea;
-    background-color: #f0f4ff;
+    background-color: rgba(102, 126, 234, 0.1);
 }
 
 .drop-zone.dragging {
     border-color: #667eea;
-    background-color: #e6f0ff;
+    background-color: rgba(102, 126, 234, 0.2);
     color: #667eea;
+    opacity: 1;
 }
 
 .file-input-label {
@@ -93,4 +97,25 @@
 
 .btn-danger:hover {
     background-color: #c0392b;
+}
+
+.settings-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.setting-section {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.setting-section h3 {
+    color: var(--card-text);
+    margin-bottom: 1rem;
+}
+
+.setting-group {
+    margin-bottom: 1.5rem;
 }

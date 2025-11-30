@@ -1,10 +1,11 @@
 .main-navigation {
-    background: #282c34;
+    background: var(--nav-bg);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: var(--nav-text);
+    transition: all 0.3s ease;
 }
 
 .nav-brand h2 {
@@ -18,10 +19,11 @@
     margin: 0;
     padding: 0;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-menu a {
-    color: white;
+    color: var(--nav-text);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -35,4 +37,18 @@
 .nav-menu a.active {
     background-color: #61dafb;
     color: #282c34;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }

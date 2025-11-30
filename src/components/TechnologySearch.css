@@ -1,13 +1,14 @@
 .technology-search {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
 }
 
 .technology-search h3 {
-    color: #333;
+    color: var(--card-text);
     margin-bottom: 1rem;
 }
 
@@ -23,6 +24,15 @@
     border-radius: 5px;
     font-size: 1rem;
     padding-right: 2.5rem;
+    background: var(--card-bg);
+    color: var(--card-text);
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
 }
 
 .search-loading {
@@ -38,7 +48,7 @@
 }
 
 .search-results h4 {
-    color: #333;
+    color: var(--card-text);
     margin-bottom: 0.5rem;
 }
 
@@ -54,20 +64,23 @@
     margin-bottom: 0.5rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    background: var(--card-bg);
+    color: var(--card-text);
 }
 
 .result-item:hover {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .result-item h5 {
     margin: 0 0 0.5rem 0;
-    color: #333;
+    color: var(--card-text);
 }
 
 .result-item p {
     margin: 0 0 0.5rem 0;
-    color: #666;
+    color: var(--card-text);
+    opacity: 0.8;
     font-size: 0.9rem;
 }
 
@@ -81,7 +94,8 @@
 }
 
 .no-results {
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
     text-align: center;
     padding: 1rem;
     font-style: italic;

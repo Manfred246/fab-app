@@ -1,14 +1,15 @@
 .enhanced-technology-form {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
+    transition: all 0.3s ease;
 }
 
 .enhanced-technology-form h2 {
-    color: #333;
+    color: var(--card-text);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -21,7 +22,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: var(--card-text);
 }
 
 .form-group label.required::after {
@@ -37,9 +38,9 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-    color: #333;
-    background: white;
-    transition: border-color 0.3s;
+    color: var(--card-text);
+    background: var(--card-bg);
+    transition: all 0.3s;
 }
 
 .form-group input:focus,
@@ -71,45 +72,6 @@
     border: 1px solid #c3e6cb;
 }
 
-.resource-field {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    align-items: flex-start;
-}
-
-.resource-field input {
-    flex: 1;
-}
-
-.btn-remove {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.btn-remove:hover {
-    background-color: #c0392b;
-}
-
-.btn-add-resource {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.btn-add-resource:hover {
-    background-color: #e9ecef;
-}
-
 .form-actions {
     display: flex;
     gap: 1rem;
@@ -125,6 +87,7 @@
     cursor: pointer;
     font-size: 1rem;
     flex: 1;
+    transition: all 0.3s;
 }
 
 .btn-primary:disabled {
@@ -138,13 +101,14 @@
 
 .btn-secondary {
     background-color: #f8f9fa;
-    color: #333;
+    color: var(--card-text);
     border: 1px solid #ddd;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     flex: 1;
+    transition: all 0.3s;
 }
 
 .btn-secondary:hover {

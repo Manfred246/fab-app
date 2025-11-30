@@ -1,7 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { IconButton } from '@mui/material';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
 import './Navigation.css';
 
-function Navigation() {
+function Navigation({ darkMode, onToggleTheme }) {
     const location = useLocation();
 
     return (
@@ -52,6 +54,15 @@ function Navigation() {
                     >
                         Настройки
                     </Link>
+                </li>
+                <li>
+                    <IconButton
+                        onClick={onToggleTheme}
+                        color="inherit"
+                        aria-label={darkMode ? 'Переключить на светлую тему' : 'Переключить на темную тему'}
+                    >
+                        {darkMode ? <Brightness7 /> : <Brightness4 />}
+                    </IconButton>
                 </li>
             </ul>
         </nav>

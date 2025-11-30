@@ -1,18 +1,19 @@
 .bulk-status-editor {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
 }
 
 .bulk-status-editor h2 {
-    color: #333;
+    color: var(--card-text);
     margin-bottom: 1.5rem;
 }
 
 .bulk-controls {
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -24,6 +25,7 @@
     align-items: center;
     margin-bottom: 1rem;
     font-weight: 500;
+    color: var(--card-text);
 }
 
 .btn-select-all {
@@ -34,6 +36,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.875rem;
+    transition: all 0.3s;
 }
 
 .btn-select-all:hover {
@@ -51,7 +54,7 @@
 
 .status-controls label {
     font-weight: 500;
-    color: #333;
+    color: var(--card-text);
 }
 
 .status-controls select {
@@ -59,6 +62,8 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--card-text);
 }
 
 .btn-update {
@@ -69,6 +74,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    transition: all 0.3s;
 }
 
 .btn-update:disabled {
@@ -82,12 +88,13 @@
 
 .help-text {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--card-text);
+    opacity: 0.7;
     font-style: italic;
 }
 
 .technologies-list h3 {
-    color: #333;
+    color: var(--card-text);
     margin-bottom: 1rem;
 }
 
@@ -103,17 +110,18 @@
     padding: 1rem;
     border: 2px solid transparent;
     border-radius: 8px;
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
+    color: var(--card-text);
 }
 
 .tech-item.selected {
     border-color: #667eea;
-    background: #f0f4ff;
+    background: rgba(102, 126, 234, 0.1);
 }
 
 .tech-item:hover {
-    background: #e9ecef;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .tech-checkbox {
@@ -131,7 +139,7 @@
 
 .tech-title {
     font-weight: 500;
-    color: #333;
+    color: var(--card-text);
 }
 
 .tech-status {
@@ -158,7 +166,8 @@
 
 .no-technologies {
     text-align: center;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.7;
     padding: 2rem;
     font-style: italic;
 }

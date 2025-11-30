@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { FormControlLabel, Switch } from '@mui/material';
 import './Settings.css';
 
-function Settings() {
+function Settings({ darkMode, onToggleTheme }) {
     const [settings, setSettings] = useState({
         theme: 'light',
         notifications: true,
@@ -28,11 +29,8 @@ function Settings() {
             }
 
             const technologies = JSON.parse(saved);
-
             const dataStr = JSON.stringify(technologies, null, 2);
-
             const dataBlob = new Blob([dataStr], { type: 'application/json' });
-
             const url = URL.createObjectURL(dataBlob);
             const link = document.createElement('a');
             link.href = url;
@@ -43,7 +41,6 @@ function Settings() {
             document.body.removeChild(link);
 
             URL.revokeObjectURL(url);
-
             setStatus(`Данные экспортированы (${technologies.length} технологий)`);
             setTimeout(() => setStatus(''), 3000);
         } catch (error) {
@@ -58,11 +55,9 @@ function Settings() {
         if (!file) return;
 
         const reader = new FileReader();
-
         reader.onload = (e) => {
             try {
                 const imported = JSON.parse(e.target.result);
-
                 if (!Array.isArray(imported)) {
                     throw new Error('Неверный формат данных');
                 }
@@ -91,9 +86,7 @@ function Settings() {
                 setTimeout(() => setStatus(''), 3000);
             }
         };
-
         reader.readAsText(file);
-        
         event.target.value = '';
     };
 
@@ -109,7 +102,6 @@ function Settings() {
     const handleDrop = (e) => {
         e.preventDefault();
         setIsDragging(false);
-
         const file = e.dataTransfer.files[0];
         if (file && file.type === 'application/json') {
             const reader = new FileReader();
@@ -117,13 +109,11 @@ function Settings() {
                 try {
                     const imported = JSON.parse(event.target.result);
                     if (Array.isArray(imported)) {
-                        
                         const isValid = imported.every(item => 
                             item && 
                             typeof item.title === 'string' && 
                             typeof item.category === 'string'
                         );
-
                         if (isValid) {
                             localStorage.setItem('technologies', JSON.stringify(imported));
                             setStatus(`Импортировано ${imported.length} технологий через Drag&Drop`);
@@ -162,7 +152,6 @@ function Settings() {
                 <h1>Настройки</h1>
             </div>
 
-            {/* Статусные сообщения */}
             {status && (
                 <div className={`status-message ${status.includes('Ошибка') ? 'error' : 'success'}`}>
                     {status}
@@ -173,16 +162,16 @@ function Settings() {
                 <div className="setting-section">
                     <h3>Внешний вид</h3>
                     <div className="setting-group">
-                        <label>Тема оформления</label>
-                        <select
-                            name="theme"
-                            value={settings.theme}
-                            onChange={handleChange}
-                        >
-                            <option value="light">Светлая</option>
-                            <option value="dark">Темная</option>
-                            <option value="auto">Авто</option>
-                        </select>
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={darkMode}
+                                    onChange={onToggleTheme}
+                                    name="darkMode"
+                                />
+                            }
+                            label={darkMode ? 'Тёмная тема' : 'Светлая тема'}
+                        />
                     </div>
                 </div>
 
@@ -220,8 +209,7 @@ function Settings() {
                             Экспорт в JSON
                         </button>
                         <p className="setting-description">
-                            Скачайте все данные в формате JSON для резервного копирования. 
-                            Файл будет красиво отформатирован для удобного чтения.
+                            Скачайте все данные в формате JSON для резервного копирования.
                         </p>
                     </div>
 
@@ -237,11 +225,9 @@ function Settings() {
                         </label>
                         <p className="setting-description">
                             Загрузите данные из JSON файла. Существующие данные будут заменены.
-                            Поддерживается валидация структуры данных.
                         </p>
                     </div>
 
-                    {/* Область drag-and-drop */}
                     <div className="setting-group">
                         <div
                             className={`drop-zone ${isDragging ? 'dragging' : ''}`}
@@ -251,9 +237,6 @@ function Settings() {
                         >
                             📁 Или перетащите JSON-файл сюда
                         </div>
-                        <p className="setting-description">
-                            Перетащите файл в эту область для импорта данных
-                        </p>
                     </div>
 
                     <div className="setting-group">
@@ -261,7 +244,7 @@ function Settings() {
                             Сбросить все данные
                         </button>
                         <p className="setting-description warning">
-                            ⚠️ Внимание: это действие невозможно отменить. Все данные будут удалены.
+                            ⚠️ Внимание: это действие невозможно отменить.
                         </p>
                     </div>
                 </div>
